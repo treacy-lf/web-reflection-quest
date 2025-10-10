@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const FeaturedBuildings = () => {
+  const navigate = useNavigate();
   const buildings = [
     { name: "虹桥万科中心", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop" },
     { name: "虹桥国际展汇", image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?w=400&h=300&fit=crop" },
@@ -22,11 +24,12 @@ const FeaturedBuildings = () => {
         <h2 className="text-3xl font-bold text-foreground mb-8">精选写字楼</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {buildings.map((building) => (
+          {buildings.map((building, index) => (
             <Card 
               key={building.name}
               className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-lg border-border"
               style={{ boxShadow: 'var(--card-shadow)' }}
+              onClick={() => navigate(`/building/${index + 1}`)}
             >
               <div className="relative h-48 overflow-hidden">
                 <img

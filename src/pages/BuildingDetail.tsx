@@ -1,0 +1,200 @@
+import { useParams } from "react-router-dom";
+import Header from "@/components/Header";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Phone, MapPin, Building2, Ruler, DollarSign } from "lucide-react";
+
+const BuildingDetail = () => {
+  const { id } = useParams();
+
+  const building = {
+    id: id,
+    name: "虹桥万科中心",
+    images: [
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&h=800&fit=crop",
+    ],
+    district: "虹桥商务区",
+    address: "上海市闵行区申滨路XXX号",
+    totalFloors: "地上30层",
+    availableArea: "100-500㎡",
+    price: "5-8元/㎡/天",
+    tags: ["近地铁", "精装修", "集中空调", "甲级写字楼"],
+    description: `虹桥万科中心位于虹桥商务区核心位置，紧邻地铁2号线和10号线，交通便利。
+    
+项目总建筑面积约10万平方米，地上30层，地下3层。写字楼采用全玻璃幕墙设计，外观现代大气。
+
+楼层净高3.5米，标准层面积约3000平方米，可灵活分割。配备高速电梯、中央空调、新风系统、智能门禁等现代化设施。
+
+周边商业配套完善，楼下即有餐饮、咖啡厅、便利店等，步行5分钟可达大型商场。停车位充足，地下车库直达各楼层。`,
+    facilities: [
+      "24小时安保",
+      "中央空调",
+      "新风系统",
+      "高速电梯",
+      "智能门禁",
+      "停车场",
+      "会议室",
+      "茶水间",
+    ],
+    transportation: [
+      "地铁2号线 虹桥火车站 步行5分钟",
+      "地铁10号线 虹桥火车站 步行5分钟",
+      "公交站 步行3分钟",
+    ],
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <div className="container mx-auto px-4 py-8">
+        {/* 图片展示 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div className="col-span-1 md:col-span-2">
+            <img
+              src={building.images[0]}
+              alt={building.name}
+              className="w-full h-[400px] md:h-[500px] object-cover rounded-lg"
+            />
+          </div>
+          {building.images.slice(1).map((image, index) => (
+            <div key={index}>
+              <img
+                src={image}
+                alt={`${building.name} ${index + 2}`}
+                className="w-full h-[250px] object-cover rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* 主要信息 */}
+          <div className="lg:col-span-2 space-y-6">
+            <div>
+              <h1 className="text-3xl font-bold text-foreground mb-4">{building.name}</h1>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {building.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary">{tag}</Badge>
+                ))}
+              </div>
+              <div className="flex items-center text-muted-foreground mb-2">
+                <MapPin className="w-4 h-4 mr-2" />
+                <span>{building.address}</span>
+              </div>
+            </div>
+
+            {/* 基本信息卡片 */}
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">基本信息</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="flex items-start gap-3">
+                    <DollarSign className="w-5 h-5 text-primary mt-1" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">租金</p>
+                      <p className="font-semibold">{building.price}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Ruler className="w-5 h-5 text-primary mt-1" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">面积</p>
+                      <p className="font-semibold">{building.availableArea}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Building2 className="w-5 h-5 text-primary mt-1" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">楼层</p>
+                      <p className="font-semibold">{building.totalFloors}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-primary mt-1" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">商圈</p>
+                      <p className="font-semibold">{building.district}</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 楼盘介绍 */}
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">楼盘介绍</h2>
+                <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
+                  {building.description}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* 配套设施 */}
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">配套设施</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {building.facilities.map((facility) => (
+                    <div key={facility} className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-primary rounded-full" />
+                      <span className="text-muted-foreground">{facility}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 交通信息 */}
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">交通信息</h2>
+                <div className="space-y-3">
+                  {building.transportation.map((item, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2" />
+                      <span className="text-muted-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* 联系卡片 */}
+          <div className="lg:col-span-1">
+            <Card className="sticky top-4">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">联系我们</h3>
+                <div className="space-y-4">
+                  <div className="p-4 bg-secondary/30 rounded-lg">
+                    <p className="text-sm text-muted-foreground mb-2">租金</p>
+                    <p className="text-2xl font-bold text-primary">{building.price}</p>
+                  </div>
+                  <Button className="w-full" size="lg">
+                    <Phone className="w-4 h-4 mr-2" />
+                    021-64202027
+                  </Button>
+                  <Button variant="outline" className="w-full" size="lg">
+                    预约看房
+                  </Button>
+                  <div className="pt-4 border-t border-border">
+                    <p className="text-sm text-muted-foreground text-center">
+                      工作时间：周一至周日 9:00-18:00
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BuildingDetail;

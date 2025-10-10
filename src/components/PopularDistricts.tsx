@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const PopularDistricts = () => {
+  const navigate = useNavigate();
   const districts = [
     { name: "虹桥商务区", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop" },
     { name: "徐泾/西虹桥", image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?w=400&h=300&fit=crop" },
@@ -23,6 +25,7 @@ const PopularDistricts = () => {
               key={district.name}
               className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-lg border-border"
               style={{ boxShadow: 'var(--card-shadow)' }}
+              onClick={() => navigate(`/buildings?district=${encodeURIComponent(district.name)}`)}
             >
               <div className="relative h-48 overflow-hidden">
                 <img
