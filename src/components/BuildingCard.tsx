@@ -3,22 +3,20 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Ruler, DollarSign } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-interface Building {
-  id: number;
+interface BuildingCardProps {
+  id: string | number;
   name: string;
   image: string;
-  district: string;
   area: string;
   price: string;
-  floor: string;
+  location?: string;
+  district?: string;
+  floor?: string;
   tags: string[];
 }
 
-interface BuildingCardProps {
-  building: Building;
-}
-
-const BuildingCard = ({ building }: BuildingCardProps) => {
+const BuildingCard = ({ id, name, image, area, price, location, district, floor, tags }: BuildingCardProps) => {
+  const building = { id, name, image, area, price, location: location || district || '', district: district || location || '', floor: floor || '', tags };
   const navigate = useNavigate();
 
   const handleClick = () => {
