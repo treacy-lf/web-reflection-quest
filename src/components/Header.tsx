@@ -1,5 +1,6 @@
 import { Building2, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import LocationSelector from "./LocationSelector";
 
 const Header = () => {
   const location = useLocation();
@@ -10,10 +11,13 @@ const Header = () => {
     <header className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2">
-            <Building2 className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">上海超办</span>
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex items-center gap-2">
+              <Building2 className="h-8 w-8 text-primary" />
+              <span className="text-xl font-bold text-foreground">上海超办</span>
+            </Link>
+            <LocationSelector />
+          </div>
           
           <nav className="hidden md:flex items-center gap-8">
             <Link to="/" className={isActive("/") ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary transition-colors"}>首页</Link>
@@ -25,10 +29,10 @@ const Header = () => {
             <Link to="/news" className={isActive("/news") ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary transition-colors"}>资讯中心</Link>
           </nav>
           
-          <div className="flex items-center gap-2 text-primary">
+          <a href="tel:021-64202027" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
             <Phone className="h-4 w-4" />
             <span className="font-semibold">021-64202027</span>
-          </div>
+          </a>
         </div>
       </div>
     </header>

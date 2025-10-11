@@ -3,9 +3,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import heroImage from "@/assets/hero-office.jpg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const [activeTab, setActiveTab] = useState("商圈");
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      navigate(`/buildings?search=${encodeURIComponent(searchQuery)}&type=${activeTab}`);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   return (
     <section className="relative h-[600px] overflow-hidden">
@@ -51,10 +66,13 @@ const HeroSection = () => {
           
           <div className="flex gap-2">
             <Input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyPress={handleKeyPress}
               placeholder="请输入关键名称或地址"
               className="flex-1 h-12 text-base"
             />
-            <Button size="lg" className="px-12">
+            <Button size="lg" className="px-12" onClick={handleSearch}>
               <Search className="mr-2 h-5 w-5" />
               开始选址
             </Button>

@@ -8,6 +8,7 @@ import FeaturedCreativePark from "@/components/FeaturedCreativePark";
 import FeaturedHeadquarters from "@/components/FeaturedHeadquarters";
 import ContentSections from "@/components/ContentSections";
 import Footer from "@/components/Footer";
+import FloatingActionButton from "@/components/FloatingActionButton";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <FeaturedHeadquarters />
       <ContentSections />
       <Footer />
+      <FloatingActionButton />
     </div>
   );
 };
