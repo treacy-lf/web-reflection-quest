@@ -6,46 +6,34 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Phone, MapPin, Building2, Ruler, DollarSign, Train, Car, Users } from "lucide-react";
 import BuildingMap from "@/components/BuildingMap";
+import { getBuildingById } from "@/data/mockBuildings";
 
 const BuildingDetail = () => {
   const { id } = useParams();
+  const buildingData = getBuildingById(id || "");
+
+  if (!buildingData) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto px-4 py-16 text-center">
+          <h1 className="text-3xl font-bold mb-4">楼盘不存在</h1>
+          <p className="text-muted-foreground">抱歉，找不到该楼盘信息</p>
+        </div>
+      </div>
+    );
+  }
 
   const building = {
-    id: id,
-    name: "虹桥万科中心",
-    images: [
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&h=800&fit=crop",
-    ],
-    district: "虹桥商务区",
-    address: "上海市闵行区申滨路XXX号",
-    totalFloors: "地上30层",
-    availableArea: "100-500㎡",
-    price: "5-8元/㎡/天",
-    tags: ["近地铁", "精装修", "集中空调", "甲级写字楼"],
-    description: `虹桥万科中心位于虹桥商务区核心位置，紧邻地铁2号线和10号线，交通便利。
-    
-项目总建筑面积约10万平方米，地上30层，地下3层。写字楼采用全玻璃幕墙设计，外观现代大气。
-
-楼层净高3.5米，标准层面积约3000平方米，可灵活分割。配备高速电梯、中央空调、新风系统、智能门禁等现代化设施。
-
-周边商业配套完善，楼下即有餐饮、咖啡厅、便利店等，步行5分钟可达大型商场。停车位充足，地下车库直达各楼层。`,
-    facilities: [
-      "24小时安保",
-      "中央空调",
-      "新风系统",
-      "高速电梯",
-      "智能门禁",
-      "停车场",
-      "会议室",
-      "茶水间",
-    ],
-    transportation: [
-      "地铁2号线 虹桥火车站 步行5分钟",
-      "地铁10号线 虹桥火车站 步行5分钟",
-      "公交站 步行3分钟",
-    ],
+    ...buildingData,
+    images: buildingData.images || [buildingData.image],
+    totalFloors: buildingData.totalFloors || "地上30层",
+    availableArea: buildingData.availableArea || buildingData.area,
+    description: buildingData.description || `${buildingData.name}位于${buildingData.district}，地理位置优越，交通便利。`,
+    facilities: buildingData.facilities || ["24小时安保", "中央空调", "新风系统", "高速电梯", "智能门禁", "停车场", "会议室", "茶水间"],
+    transportation: buildingData.transportation || ["地铁站 步行5分钟", "公交站 步行3分钟"],
+    longitude: buildingData.longitude || 121.398,
+    latitude: buildingData.latitude || 31.198,
   };
 
   return (
