@@ -1,6 +1,5 @@
 import { Building2, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import LocationSelector from "./LocationSelector";
 
 const Header = () => {
   const location = useLocation();
@@ -11,13 +10,10 @@ const Header = () => {
     <header className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-4">
-            <Link to="/" className="flex items-center gap-2">
-              <Building2 className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-foreground">上海超办</span>
-            </Link>
-            <LocationSelector />
-          </div>
+          <Link to="/" className="flex items-center gap-2">
+            <Building2 className="h-8 w-8 text-primary" />
+            <span className="text-xl font-bold text-foreground">上海超办</span>
+          </Link>
           
           <nav className="hidden md:flex items-center gap-8">
             <Link to="/" className={isActive("/") ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary transition-colors"}>首页</Link>

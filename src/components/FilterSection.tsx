@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const FilterSection = () => {
+  const navigate = useNavigate();
+  const [selectedLocation, setSelectedLocation] = useState("不限");
+  const [selectedSubway, setSelectedSubway] = useState("不限");
+  const [selectedArea, setSelectedArea] = useState("不限");
+  const [selectedPrice, setSelectedPrice] = useState("单价不限");
+  
   const locations = [
     "不限", "浦东", "黄浦", "静安", "徐汇", "长宁", "普陀", "闵行", 
     "青浦", "虹口", "杨浦", "嘉定", "宝山", "松江", "奉贤", "金山"
@@ -19,6 +27,15 @@ const FilterSection = () => {
     "单价不限", "3元以下", "3-4元", "4-5元", "5-7元", "7-9元", "9-12元", "12元以上"
   ];
 
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (selectedLocation !== "不限") params.append("location", selectedLocation);
+    if (selectedSubway !== "不限") params.append("subway", selectedSubway);
+    if (selectedArea !== "不限") params.append("area", selectedArea);
+    if (selectedPrice !== "单价不限") params.append("price", selectedPrice);
+    navigate(`/buildings?${params.toString()}`);
+  };
+
   return (
     <section className="bg-card border-b border-border py-6">
       <div className="container mx-auto px-4">
@@ -31,7 +48,11 @@ const FilterSection = () => {
                   key={location}
                   variant="ghost"
                   size="sm"
-                  className={location === "不限" ? "text-primary" : ""}
+                  className={selectedLocation === location ? "text-primary" : ""}
+                  onClick={() => {
+                    setSelectedLocation(location);
+                    handleSearch();
+                  }}
                 >
                   {location}
                 </Button>
@@ -47,7 +68,11 @@ const FilterSection = () => {
                   key={subway}
                   variant="ghost"
                   size="sm"
-                  className={subway === "不限" ? "text-primary" : ""}
+                  className={selectedSubway === subway ? "text-primary" : ""}
+                  onClick={() => {
+                    setSelectedSubway(subway);
+                    handleSearch();
+                  }}
                 >
                   {subway}
                 </Button>
@@ -63,7 +88,11 @@ const FilterSection = () => {
                   key={area}
                   variant="ghost"
                   size="sm"
-                  className={area === "不限" ? "text-primary" : ""}
+                  className={selectedArea === area ? "text-primary" : ""}
+                  onClick={() => {
+                    setSelectedArea(area);
+                    handleSearch();
+                  }}
                 >
                   {area}
                 </Button>
@@ -79,7 +108,11 @@ const FilterSection = () => {
                   key={price}
                   variant="ghost"
                   size="sm"
-                  className={price === "单价不限" ? "text-primary" : ""}
+                  className={selectedPrice === price ? "text-primary" : ""}
+                  onClick={() => {
+                    setSelectedPrice(price);
+                    handleSearch();
+                  }}
                 >
                   {price}
                 </Button>
