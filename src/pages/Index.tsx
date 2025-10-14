@@ -1,27 +1,29 @@
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
+import HeroSlider from "@/components/HeroSlider";
+import SearchBox from "@/components/SearchBox";
 import FilterSection from "@/components/FilterSection";
 import PopularDistricts from "@/components/PopularDistricts";
 import FeaturedBuildings from "@/components/FeaturedBuildings";
 import FeaturedCoworking from "@/components/FeaturedCoworking";
 import FeaturedCreativePark from "@/components/FeaturedCreativePark";
 import FeaturedHeadquarters from "@/components/FeaturedHeadquarters";
-import ContentSections from "@/components/ContentSections";
 import Footer from "@/components/Footer";
 import FloatingActionButton from "@/components/FloatingActionButton";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ background: 'url(/img/bg-rep-03.png)' }}>
       <Header />
-      <HeroSection />
+      <div className="relative">
+        <HeroSlider />
+        <SearchBox />
+      </div>
       <FilterSection />
       <PopularDistricts />
       <FeaturedBuildings />
       <FeaturedCoworking />
       <FeaturedCreativePark />
       <FeaturedHeadquarters />
-      <ContentSections />
       <Footer />
       <FloatingActionButton />
     </div>
