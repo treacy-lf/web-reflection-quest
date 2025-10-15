@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 const PopularDistricts = () => {
   const navigate = useNavigate();
   const districts = [
-    { name: "虹桥商务区", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop" },
-    { name: "徐泾/西虹桥", image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?w=400&h=300&fit=crop" },
-    { name: "虹桥临空经济区", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=300&fit=crop" },
-    { name: "虹桥古北开发区", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop" },
-    { name: "人民广场", image: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400&h=300&fit=crop" },
-    { name: "长风商务区", image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=400&h=300&fit=crop" },
-    { name: "莘庄商务区", image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=400&h=300&fit=crop" },
-    { name: "陆家嘴", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop" },
+    { name: "虹桥商务区", aid: "99", image: "/images/district-hongqiao.jpg" },
+    { name: "徐泾/西虹桥", aid: "108", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210615/8c4499df1b95a33595d532bdb870785e.jpg" },
+    { name: "虹桥临空经济区", aid: "86", image: "/images/district-linkong.png" },
+    { name: "虹桥古北开发区", aid: "87", image: "/images/district-gubei.jpg" },
+    { name: "人民广场", aid: "63", image: "/images/district-renmin.jpg" },
+    { name: "长风商务区", aid: "91", image: "/images/district-changfeng.jpg" },
+    { name: "莘庄商务区", aid: "101", image: "/images/district-xinzhuang.jpg" },
+    { name: "陆家嘴", aid: "48", image: "/images/district-lujiazui.png" },
   ];
 
   return (
@@ -25,7 +25,7 @@ const PopularDistricts = () => {
               key={district.name}
               className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-lg border-border"
               style={{ boxShadow: 'var(--card-shadow)' }}
-              onClick={() => navigate(`/buildings?district=${encodeURIComponent(district.name)}`)}
+              onClick={() => navigate(`/buildings?aid=${district.aid}`)}
             >
               <div className="relative h-48 overflow-hidden">
                 <img

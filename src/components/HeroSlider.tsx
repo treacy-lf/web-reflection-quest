@@ -6,19 +6,19 @@ const HeroSlider = () => {
 
   const slides = [
     {
-      image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210622/0783c09a16611f90f216690d9819096f.jpg",
+      image: "/images/slider1.jpg",
       link: "/office-buildings"
     },
     {
-      image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/55373508c7073bf8715271ff288fc20d.jpg",
+      image: "/images/slider2.jpg",
       link: "/creative-park"
     },
     {
-      image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/5d2ba4d0a6f79fdcc9181b809ccebf28.jpg",
+      image: "/images/slider3.jpg",
       link: "/coworking"
     },
     {
-      image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210622/559d986d348e7dbc87890a412778b6bf.jpg",
+      image: "/images/slider4.jpg",
       link: "/headquarters"
     }
   ];

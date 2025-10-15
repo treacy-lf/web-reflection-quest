@@ -11,8 +11,11 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <Building2 className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">上海超办</span>
+            <img 
+              src="/images/logo.png" 
+              alt="上海超办信息服务有限公司" 
+              className="h-12"
+            />
           </Link>
           
           <nav className="hidden md:flex items-center gap-8">
