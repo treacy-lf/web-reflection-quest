@@ -5,18 +5,18 @@ import { useNavigate } from "react-router-dom";
 const FeaturedBuildings = () => {
   const navigate = useNavigate();
   const buildings = [
-    { name: "虹桥万科中心", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop" },
-    { name: "虹桥国际展汇", image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?w=400&h=300&fit=crop" },
-    { name: "虹桥汇", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=300&fit=crop" },
-    { name: "SOHO天山广场", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop" },
-    { name: "虹桥天地", image: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400&h=300&fit=crop" },
-    { name: "虹桥世界中心", image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=400&h=300&fit=crop" },
-    { name: "中骏广场二期", image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=400&h=300&fit=crop" },
-    { name: "虹桥阿里中心", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop" },
-    { name: "远东国际广场", image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&h=300&fit=crop" },
-    { name: "维璟中心", image: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=400&h=300&fit=crop" },
-    { name: "恒基旭辉中心", image: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=400&h=300&fit=crop" },
-    { name: "尚嘉中心", image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=300&fit=crop" },
+    { id: "66", name: "虹桥万科中心", image: "/images/buildings/hongqiao-vanke.jpg" },
+    { id: "70", name: "虹桥国际展汇", image: "/images/buildings/hongqiao-exhibition.jpg" },
+    { id: "163", name: "虹桥汇", image: "/images/buildings/hongqiao-hui.jpg" },
+    { id: "578", name: "SOHO天山广场", image: "/images/buildings/soho-tianshan.jpg" },
+    { id: "114", name: "虹桥天地", image: "/images/buildings/hongqiao-tiandi.jpg" },
+    { id: "89", name: "虹桥世界中心", image: "/images/buildings/hongqiao-world-center.jpg" },
+    { id: "135", name: "中骏广场二期", image: "/images/buildings/zhongjun-plaza2.png" },
+    { id: "79", name: "虹桥阿里中心", image: "/images/buildings/hongqiao-ali-center.jpg" },
+    { id: "608", name: "远东国际广场", image: "/images/buildings/yuandong-plaza.jpg" },
+    { id: "573", name: "维璟中心", image: "/images/buildings/weijing-center.jpg" },
+    { id: "172", name: "恒基旭辉中心", image: "/images/buildings/hongqiao-vanke.jpg" },
+    { id: "567", name: "尚嘉中心", image: "/images/buildings/shangjia-center.jpg" },
   ];
 
   return (
@@ -26,19 +26,19 @@ const FeaturedBuildings = () => {
           <h2 className="text-3xl font-bold text-foreground">精选写字楼</h2>
           <Button 
             variant="outline"
-            onClick={() => navigate('/buildings')}
+            onClick={() => navigate('/office-buildings')}
           >
-            更多
+            更多上海写字楼出租
           </Button>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {buildings.map((building, index) => (
+          {buildings.map((building) => (
             <Card 
               key={building.name}
               className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-lg border-border"
               style={{ boxShadow: 'var(--card-shadow)' }}
-              onClick={() => navigate(`/building/${index + 1}`)}
+              onClick={() => navigate(`/building/${building.id}`)}
             >
               <div className="relative h-48 overflow-hidden">
                 <img

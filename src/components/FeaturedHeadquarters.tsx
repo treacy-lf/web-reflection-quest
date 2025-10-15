@@ -5,14 +5,18 @@ import { useNavigate } from "react-router-dom";
 const FeaturedHeadquarters = () => {
   const navigate = useNavigate();
   const headquarters = [
-    { id: "1694", name: "张江科学城总部园", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/a2b8c1e9d4f3a6e7b8c9d0e1f2a3b4c5.jpg" },
-    { id: "1693", name: "紫竹高新区独栋", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/b3c9d2e0f1a4b5c6d7e8f9a0b1c2d3e4.jpg" },
-    { id: "1692", name: "漕河泾开发区总部", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/c4d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4.jpg" },
-    { id: "1691", name: "临港新片区总部基地", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/d5e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5.jpg" },
-    { id: "1690", name: "金桥经济开发区", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/e6f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6.jpg" },
-    { id: "1689", name: "虹桥商务区总部", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/f7a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7.jpg" },
-    { id: "1688", name: "外高桥保税区总部", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/a8b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8.jpg" },
-    { id: "1687", name: "陆家嘴金融城", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/b9c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9.jpg" },
+    { id: "2751", name: "虹桥BU中心（独栋）", image: "/images/headquarters/hongqiao-bu.jpg" },
+    { id: "2718", name: "力波REEB1987（独栋）", image: "/images/headquarters/libo-reeb.jpg" },
+    { id: "1698", name: "田林坊（独栋）", image: "/images/headquarters/tianlinfang.jpg" },
+    { id: "1701", name: "中骏广场（独栋）", image: "/images/headquarters/zhongjun.jpg" },
+    { id: "1693", name: "虹桥正荣中心（独栋）", image: "/images/headquarters/zhengrong.jpg" },
+    { id: "2746", name: "MAX科技园（独栋）", image: "/images/headquarters/max-tech.jpg" },
+    { id: "2760", name: "平金中心（独栋）", image: "/images/headquarters/pingjin.jpg" },
+    { id: "2722", name: "容大中心（独栋）", image: "/images/headquarters/rongda.jpg" },
+    { id: "1691", name: "E通世界·华新园（独栋)", image: "/images/headquarters/etong.jpg" },
+    { id: "1692", name: "丰隆虹桥中心（独栋）", image: "/images/headquarters/fenglong.jpg" },
+    { id: "1699", name: "虹桥展汇（独栋）", image: "/images/headquarters/hongqiao-zhanhui.jpg" },
+    { id: "1700", name: "中建锦绣天地（独栋）", image: "/images/headquarters/zhongjian.jpg" },
   ];
 
   return (

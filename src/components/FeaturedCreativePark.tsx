@@ -5,14 +5,17 @@ import { useNavigate } from "react-router-dom";
 const FeaturedCreativePark = () => {
   const navigate = useNavigate();
   const parks = [
-    { id: "1686", name: "M50创意园", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/81c2e3e8253e3a71d2fc3acdebce62cc.jpg" },
-    { id: "1685", name: "德必易园", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/c2e32c8bdd69ba3cf8e73f51af7e47a5.jpg" },
-    { id: "1684", name: "越界创意园", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/cb26fb68ee7e9e40a9e35b5a8a2eb103.jpg" },
-    { id: "1683", name: "8号桥", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/e10e4fe2fc4af94a0c867e3afcb2a7cf.jpg" },
-    { id: "1682", name: "田子坊创意园", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/faa211bad862c24e5efe09a5f42c65b6.jpg" },
-    { id: "1681", name: "创智天地", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/97bb06c1a0ae3aa8f39f8c7ac8c56dc6.jpg" },
-    { id: "1680", name: "上海国际时尚中心", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/7ea2b0d8a9a1ddffc4bfb1c4e2d9c2e3.jpg" },
-    { id: "1679", name: "1933老场坊", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210617/32d6fbb44efeda0e5e2e3ecb4e01eee5.jpg" },
+    { id: "1591", name: "800秀创意园", image: "/images/creative/800xiu.jpg" },
+    { id: "1592", name: "安垦汇智创意园", image: "/images/creative/anken.jpg" },
+    { id: "1593", name: "八号桥Ⅳ期", image: "/images/creative/8bridge-4.jpg" },
+    { id: "1594", name: "大宁德必易园", image: "/images/creative/daning-debi.jpg" },
+    { id: "1596", name: "老码头创意园", image: "/images/creative/laomatou.jpg" },
+    { id: "1597", name: "幸福里创意园", image: "/images/creative/xingfuli.jpg" },
+    { id: "1598", name: "越界·世博园", image: "/images/creative/yuejie-shibo.jpg" },
+    { id: "1599", name: "越界·1199", image: "/images/creative/yuejie-1199.jpg" },
+    { id: "1601", name: "越界·田林坊", image: "/images/creative/yuejie-tianlin.jpg" },
+    { id: "1602", name: "城市概念创意园", image: "/images/creative/chengshi.jpg" },
+    { id: "1023", name: "长宁德必易园", image: "/images/creative/changning-debi.jpg" },
   ];
 
   return (
