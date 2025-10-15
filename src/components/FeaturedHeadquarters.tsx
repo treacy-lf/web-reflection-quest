@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 const FeaturedHeadquarters = () => {
   const navigate = useNavigate();
   const headquarters = [
-    { name: "张江高科技园区总部园", image: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=400&h=300&fit=crop" },
-    { name: "紫竹高新区独栋", image: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=400&h=300&fit=crop" },
-    { name: "漕河泾开发区总部", image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=400&h=300&fit=crop" },
-    { name: "临港新片区总部基地", image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&h=300&fit=crop" },
-    { name: "金桥经济开发区", image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=400&h=300&fit=crop" },
-    { name: "虹桥商务区总部", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop" },
-    { name: "外高桥保税区", image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=400&h=300&fit=crop" },
-    { name: "陆家嘴金融城", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop" },
+    { id: "1694", name: "张江科学城总部园", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/a2b8c1e9d4f3a6e7b8c9d0e1f2a3b4c5.jpg" },
+    { id: "1693", name: "紫竹高新区独栋", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/b3c9d2e0f1a4b5c6d7e8f9a0b1c2d3e4.jpg" },
+    { id: "1692", name: "漕河泾开发区总部", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/c4d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4.jpg" },
+    { id: "1691", name: "临港新片区总部基地", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/d5e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5.jpg" },
+    { id: "1690", name: "金桥经济开发区", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/e6f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6.jpg" },
+    { id: "1689", name: "虹桥商务区总部", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/f7a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7.jpg" },
+    { id: "1688", name: "外高桥保税区总部", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/a8b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8.jpg" },
+    { id: "1687", name: "陆家嘴金融城", image: "https://chaoban.oss-cn-shanghai.aliyuncs.com/images/uploads_eWr6Ld/uploads/20210618/b9c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9.jpg" },
   ];
 
   return (
@@ -22,9 +22,9 @@ const FeaturedHeadquarters = () => {
           <h2 className="text-3xl font-bold text-foreground">精选总部独栋</h2>
           <Button 
             variant="outline"
-            onClick={() => navigate('/buildings?type=headquarters')}
+            onClick={() => navigate('/headquarters')}
           >
-            更多
+            更多总部独栋
           </Button>
         </div>
         
@@ -34,7 +34,7 @@ const FeaturedHeadquarters = () => {
               key={hq.name}
               className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-lg border-border"
               style={{ boxShadow: 'var(--card-shadow)' }}
-              onClick={() => navigate(`/building/${300 + index}`)}
+              onClick={() => navigate(`/building/${hq.id}`)}
             >
               <div className="relative h-48 overflow-hidden">
                 <img
